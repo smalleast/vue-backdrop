@@ -10,9 +10,6 @@
       },
       className: {
         type: String
-      },
-      style: {
-        type: String
       }
     },
 ```
@@ -53,7 +50,7 @@ new Vue({
     <div class="popup">
       <button v-on:click="_click()">show backdrop</button>
     </div>
-    <VueBackdrop :visible="visible" :className="'zIndex'" :style="'z-index: 2;'"></VueBackdrop>
+    <VueBackdrop :visible="visible" :className="'zIndex'" ></VueBackdrop>
   </aside>
 </template>
 ```
