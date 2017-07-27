@@ -1,7 +1,7 @@
 <template>
   <aside class="dev">
     <div class="popup">
-      <button v-on:click="_click()">show backdrop</button>
+      <button v-on:click="_click()">show 11 backdrop</button>
     </div>
     <VueBackdrop :visible="visible" :className="'zIndex'" ></VueBackdrop>
   </aside>
@@ -19,7 +19,6 @@
     },
     methods: {
       _click(){
-        console.log(this.visible);
         this.visible = !this.visible;
       }
     },

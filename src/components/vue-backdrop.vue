@@ -1,10 +1,18 @@
 <template>
-  <aside class="vue-backdrop" :class="className" :data-visible="visible"></aside>
+  <aside class="vue-backdrop"
+         :class="className"
+         :data-hidden="hasHidden"
+         :data-visible="hasVisible"
+         v-on:transitionend="_onTransitionEnd()"
+  ></aside>
 </template>
 <script>
   export default {
     data() {
-      return {};
+      return {
+        hasHidden: true,
+        hasVisible: false
+      };
     },
     props: {
       visible: {
@@ -17,15 +25,21 @@
     created(){
 
     },
-    methods: {},
+    methods: {
+      _onTransitionEnd(){
+        this.hasHidden = !this.hasVisible;
+      }
+    },
     watch: {
       'visible': function (inItem) {
-        //console.log('inItem:', inItem);
+        this.hasHidden = false;
+        setTimeout(() => {
+          this.hasVisible = this.visible;
+        },100);
       }
     },
     components: {},
     mounted(){
-      //console.log('visible:', this.visible);
     }
   };
 </script>
@@ -40,7 +54,7 @@
     position: absolute;
     transition: opacity 0.3s linear;
     z-index: 1;
-    &[hidden] {
+    &[data-hidden=true], &[hidden] {
       display: none;
     }
     &[data-visible=true] {
