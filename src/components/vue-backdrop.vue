@@ -51,7 +51,7 @@
     right: 0;
     background: #000;
     opacity: 0.01;
-    position: absolute;
+    position: fixed;
     transition: opacity 0.3s linear;
     z-index: 1;
     &[data-hidden=true], &[hidden] {
