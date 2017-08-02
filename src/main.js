@@ -1,5 +1,3 @@
 import VueBackdrop from './components/vue-backdrop.vue';
 
-module.exports = {
-  VueBackdrop
-};
+module.exports = VueBackdrop;
